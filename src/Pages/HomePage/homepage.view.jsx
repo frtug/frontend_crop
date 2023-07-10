@@ -17,10 +17,10 @@ const HomePageView = () => {
         <LiquidSwipe
           components={[
             <CropRecommendationHome />,
-            <WeedDetectionHome />,
             <About />,
+            <WeedDetectionHome />,
           ]}
-          colors={["#9ACD32", "white", "black"]}
+          colors={["#9ACD32"]}
         />
       </div>
     </>

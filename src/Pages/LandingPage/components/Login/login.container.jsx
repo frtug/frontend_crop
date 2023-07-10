@@ -66,13 +66,7 @@ const Login = () => {
     setLoginDetailsErrors({ ...loginDetailsErrors, [name]: error });
   };
 
-  const handleGoogleSignin = (username, password, full_name) => {
-    let loginobj = {
-      username: username,
-      password: password,
-    };
-    handleSubmit(loginobj);
-  };
+ 
 
   const handleSubmit = (logindetails) => {
     dispatch(showBackDrop());
@@ -97,7 +91,6 @@ const Login = () => {
         setLoginDetails={setLoginDetails}
         handleLoginDetails={handleLoginDetails}
         handleSubmit={handleSubmit}
-        handleGoogleSignin={handleGoogleSignin}
       />
     </>
   );

@@ -6,7 +6,6 @@ import Register from "./Pages/LandingPage/components/Register/index";
 import LandingPage from "./Pages/LandingPage";
 import HomePage from "./Pages/HomePage";
 import CropRecommendation from "./Pages/CropRecommendationHome/Components/CropRecommendation";
-import WeedDetection from "./Pages/WeedDetectionHome/components/WeedDetection";
 
 const PrivateRoute = ({ children, component: Component, ...rest }) => {
   const isLoggedIn = !!localStorage.getItem("token");
@@ -69,12 +68,7 @@ const Routes = () => {
           exact
           strict
         />
-        <PrivateRoute
-          path="/weedDetection"
-          component={WeedDetection}
-          exact
-          strict
-        />
+        
       </Switch>
     </div>
   );
