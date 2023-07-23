@@ -3,7 +3,7 @@ import NavbarView from "./navbar.view.jsx";
 import { useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUserDetails } from "../../redux/ActionCreators/user.action";
-import { getProfileDetails } from "../../utils/requests";
+import { requestContainer,getProfileDetails } from "../../utils/requests";
 
 import BackDrop from "../BackDrop";
 import SnackBar from "../SnackBar";
@@ -19,7 +19,7 @@ const Navbar = () => {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      getProfileDetails().then((userdetails) => {
+      requestContainer(getProfileDetails).then((userdetails) => {
         dispatch(
           addUserDetails({
             ...userdetails,

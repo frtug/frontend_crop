@@ -79,7 +79,7 @@ const ProfileView = ({
                         <InputAdornment position="end">
                           <PersonIcon style={{ color: "#777" }} />
                         </InputAdornment>
-                      }
+                      }s
                     />
                   </FormControl>
                 </Grid>
@@ -123,7 +123,7 @@ const ProfileView = ({
                 )}
                 <Grid item xs={12} md={6}>
                   <FormControl style={{ width: "100%" }}>
-                    <InputLabel>State</InputLabel>
+                    <InputLabel>Province</InputLabel>
                     <Input
                       id="state_name"
                       name="state_name"
@@ -140,7 +140,7 @@ const ProfileView = ({
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <FormControl style={{ width: "100%" }}>
-                    <InputLabel>District</InputLabel>
+                    <InputLabel>Municipality</InputLabel>
                     <Input
                       id="district_name"
                       name="district_name"

@@ -82,15 +82,21 @@ const CropRecommendationHomeView = () => {
                       textAlign: "justify",
                     }}
                   >
-                    In the Philippines, agriculture is a vital sector that supports the 
-                    economy and provides employment opportunities. Many farmers face 
-                    challenges in choosing the right crops for their soil, leading to
-                    lower productivity. To address this, we propose a system that uses 
-                    machine learning to suggest suitable crops based on soil analysis. 
-                    By providing this information, the system helps inexperienced farmers
-                    make informed decisions and improve their productivity. This approach,
-                    known as precision agriculture, optimizes crop selection and contributes 
-                    to the sustainable development of the Philippine agricultural sector.
+                    Farm Analytica helps farmers and landowners in making informed decisions for their farms. 
+                    It provides recommendations on suitable crops, fertilizers, and predicted crop yield with the
+                    help of machine learning.
+                  </Typography>
+                  <Typography
+                    style={{
+                      color: "white",
+                      textAlign: "justify",
+                      marginTop:'1rem'
+                    }}
+                  >
+                    These predictions and recommendations are processed by our machine learning models that are 
+                    trained and tested on NPK, fertilizers used, soil type, land area, and crop yield, provided by
+                    the Department of Agriculture - Bureau of Soil and Water Management, San Gabriel SK Chairman
+                    Ralph de Guzman and historical weather data.
                   </Typography>
                 </Box>
 

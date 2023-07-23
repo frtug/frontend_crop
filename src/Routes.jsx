@@ -6,6 +6,7 @@ import Register from "./Pages/LandingPage/components/Register/index";
 import LandingPage from "./Pages/LandingPage";
 import HomePage from "./Pages/HomePage";
 import CropRecommendation from "./Pages/CropRecommendationHome/Components/CropRecommendation";
+import EventScheduler from "./Pages/Scheduler/Scheduler";
 
 const PrivateRoute = ({ children, component: Component, ...rest }) => {
   const isLoggedIn = !!localStorage.getItem("token");
@@ -57,6 +58,12 @@ const Routes = () => {
         <PrivateRoute path="/home" component={HomePage} exact strict />
         <PrivateRoute path="/profile" component={Profile} exact strict />
         <PrivateRoute
+          path="/scheduler"
+          component={EventScheduler}
+          exact
+          strict
+        />
+        <PrivateRoute
           path="/editprofile"
           component={EditProfile}
           exact
@@ -68,6 +75,7 @@ const Routes = () => {
           exact
           strict
         />
+        
         
       </Switch>
     </div>

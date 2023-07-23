@@ -6,19 +6,19 @@ import LiquidSwipe from "../../Components/LiquidSwipe";
 
 //component files
 import About from "../About";
-import WeedDetectionHome from "../WeedDetectionHome";
+import CropInformation from "../CropInformationHome";
 import CropRecommendationHome from "../CropRecommendationHome";
 
 const HomePageView = () => {
   return (
     <>
-      <div style={{ maxWidth: "100vw", maxHeight: "100vh" }}>
+      <div style={{ maxWidth: "100vw",maxHeight:'100vh' }}>
         {/* Add three components under LiquidSwipe */}
         <LiquidSwipe
           components={[
             <CropRecommendationHome />,
             <About />,
-            <WeedDetectionHome />,
+            <CropInformation />
           ]}
           colors={["#9ACD32"]}
         />

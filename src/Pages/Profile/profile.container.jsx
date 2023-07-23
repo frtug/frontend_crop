@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import ProfileView from "./profile.view";
 
 //request imports
-import { getProfileDetails } from "../../utils/requests";
+import { requestContainer,getProfileDetails } from "../../utils/requests";
 
 const Profile = () => {
   //states
@@ -21,7 +21,7 @@ const Profile = () => {
   const [editprofile, setEditProfile] = useState(false);
 
   useEffect(() => {
-    getProfileDetails()
+    requestContainer(getProfileDetails)
       .then((res) => {
         setProfileDetails(res);
         console.log(res);

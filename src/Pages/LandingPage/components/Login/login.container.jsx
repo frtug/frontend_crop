@@ -18,7 +18,7 @@ import {
 } from "../../../../redux/ActionCreators/backdrop.action";
 
 //requests
-import { login } from "../../../../utils/requests";
+import { requestContainer,login } from "../../../../utils/requests";
 
 const Login = () => {
   const history = useHistory();
@@ -70,7 +70,7 @@ const Login = () => {
 
   const handleSubmit = (logindetails) => {
     dispatch(showBackDrop());
-    login(logindetails)
+    requestContainer(login,logindetails)
       .then((res) => {
         dispatch(addUserToken(res.token));
         dispatch(addSuccessAlert(res.message));

@@ -1,1 +1,65 @@
-export const baseUrl = "http://31.220.6.152:8080";
+// export const baseUrl = "https://api.farmanalyticaph.online/api";
+export const baseUrl = "http://localhost:5000/api";
+
+export const images =[
+    {
+      id: 1,
+      crop: 'PALAY',
+      environment: 'Warm/Rainy',
+      suitableRegions: ['Ilocos Region', 'Cagayan Valley', 'Central Luzon', 'Western Visayas'],
+      maturity: '104-116 days',
+      fertilizerApplicationSchedule: ['7 days after transplant', '20 days after first fertilizer', 'another 20 days'],
+      description: 'Rice is a primary staple food for a large portion of the world\'s population. It is a cereal grain crop that is cultivated in flooded fields.',
+      imageUrl: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmljZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    },
+    {
+      id: 2,
+      crop: 'MAIS',
+      environment: 'Warm/Cold',
+      suitableRegions: ['Cagayan Valley', 'Ilocos Region', 'Western Visayas'],
+      maturity: '105-110 days',
+      fertilizerApplicationSchedule: ['7 days after transplant', '20 days after first fertilizer'],
+      description: 'Corn is a popular cereal crop known for its kernels that are commonly used as food or processed into various products.',
+      imageUrl: 'https://images.unsplash.com/photo-1613728913293-c99bb00ef39c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29ybnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    },
+    {
+      id: 3,
+      crop: 'KAMATIS',
+      environment: 'Warm/Cold',
+      suitableRegions: ['Ilocos Region', 'Central Luzon', 'CALABARZON'],
+      maturity: '40-60 days',
+      fertilizerApplicationSchedule: ['3 weeks after transplant'],
+      description: 'Tomatoes are a popular fruit/vegetable crop that is cultivated for its juicy, red fruits. They are widely used in cooking and consumed in various forms.',
+      imageUrl: 'https://images.unsplash.com/photo-1561136594-7f68413baa99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dG9tYXRvfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    },
+    {
+      id: 4,
+      crop: 'KAMOTE',
+      environment: 'Warm/Cold',
+      suitableRegions: ['Bicol Region', 'Western Visayas', 'Central Luzon', 'CALABARZON'],
+      maturity: '90-120 days',
+      fertilizerApplicationSchedule: ['Every 4 to 6 weeks during the growing season'],
+      description: 'Sweet potatoes are a starchy root vegetable crop known for their edible tubers. They are a versatile ingredient and can be prepared in numerous ways.',
+      imageUrl: 'https://media.istockphoto.com/id/172245358/photo/raw-whole-sweet-potatoes-yams-fresh-healthy-root-vegetable.webp?b=1&s=170667a&w=0&k=20&c=wVQ1sYcEA6RpR0ETdzcIu9KY9zP5WvbSHH9m9xSo0E0=',
+    },
+    {
+      id: 5,
+      crop: 'PATATAS',
+      environment: 'Warm/Cold',
+      suitableRegions: ['Cordillera Region', 'Cagayan Valley', 'Southeastern Mindanao'],
+      maturity: '90-120 days',
+      fertilizerApplicationSchedule: ['30 days after planting', '55 days from planting'],
+      description: 'Potatoes are a starchy root vegetable crop known for their edible tubers. They are a versatile ingredient and can be prepared in numerous ways.',
+      imageUrl: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UG90YXRvfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    },
+    {
+      id: 6,
+      crop: 'STRINGBEANS',
+      environment: 'Warm/Cold',
+      suitableRegions: ['Cordillera Region', 'Cagayan Valley', 'Western Visayas'],
+      maturity: '50-60 days',
+      fertilizerApplicationSchedule: ['Applied at planting time', 'again after small beans begin to appear'],
+      description: 'String beans, also known as green beans or snap beans, are a popular legume crop. They are consumed as a vegetable and are known for their tender pods.',
+      imageUrl: 'https://images.unsplash.com/photo-1592898320832-440b9b34721c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c3RyaW5nYmVhbnN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+    },
+  ];

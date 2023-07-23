@@ -68,20 +68,7 @@ const ChooseLocationView = ({
         </Box>
         <FormControl>
           <FormGroup>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  color="primary"
-                  name="location"
-                  checked={location === 0}
-                  onChange={() => {
-                    setChosenState("");
-                    handleLocationChange(0);
-                  }}
-                />
-              }
-              label="Use Current Location"
-            />
+            
             <FormControlLabel
               control={
                 <Checkbox
@@ -137,7 +124,7 @@ const ChooseLocationView = ({
                     >
                       <Box style={{ width: "300px"}}>
                         <Dropdown
-                          label="Municipality"
+                          label="Province"
                           options={allstates}
                           value={chosenstate}
                           handleChange={handleStateChange}
@@ -147,7 +134,7 @@ const ChooseLocationView = ({
                       </Box>
                       <Box style={{ width: "300px"}}>
                         <Dropdown
-                          label="Province" 
+                          label="Municipality" 
                           value={locationval}
                           handleChange={handleLocationvalChange}
                           options={alldistricts}

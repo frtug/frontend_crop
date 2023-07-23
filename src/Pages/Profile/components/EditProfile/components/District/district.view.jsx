@@ -11,7 +11,7 @@ const DistrictView = ({ profiledetails, handleChange, districts }) => {
         value={profiledetails["district_name"]}
         handleChange={handleChange}
         options={districts}
-        label="District"
+        label="Municipality"
         id="district_name"
         name="district_name"
       />

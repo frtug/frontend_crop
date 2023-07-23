@@ -218,7 +218,7 @@ const LiquidSwipeView = ({ components, colors }) => {
       index={0}
       setActive={setActive}
       gone={true}
-      theme={colors[sizeOfSwipe - 1]}
+      theme={colors[0]}
     >
       {components[0]}
     </Page>,
@@ -236,7 +236,7 @@ const LiquidSwipeView = ({ components, colors }) => {
             key={key}
             index={key}
             setActive={setActive}
-            theme={colors[skey]}
+            theme={colors[0]}
           >
             {components[key]}
           </Page>,
@@ -249,7 +249,7 @@ const LiquidSwipeView = ({ components, colors }) => {
           key={key}
           index={key}
           setActive={setActive}
-          theme={colors[key - 1]}
+          theme={colors[0]}
         >
           {components[key]}
         </Page>,

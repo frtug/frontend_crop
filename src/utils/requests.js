@@ -1,6 +1,57 @@
 import axios from "axios";
 import { baseUrl } from "./constants";
 
+
+const checkTrailParameters = async (name, data) => {
+  let response_call = {};
+   if (data !== null) {
+    response_call = await name(data);
+  } else {
+    response_call = await name();
+  }
+  return response_call;
+  
+};
+
+export const requestContainer = async (name, data = null) => {
+  try {
+    let response_call = await checkTrailParameters(name, data);
+    return response_call.data;
+  } catch (error) {
+    // Handle errors from checkTrailParameters function or other errors.
+      // Call a refresh token function to get a new token in our request.
+      const present_refresh_token = localStorage.getItem('refresh_token');
+      console.log("Token has expired, and we are at the status 401");
+
+      if(error.response.status === 401){
+        // Use axios.create to create an instance with the Authorization header
+        // containing the current refresh token.
+        // const refreshTokenAxios = axios.create({
+        //   headers: {
+        //     Authorization: `Bearer ${present_refresh_token}`,
+        //     'Content-Type': 'application/json', // Set the Content-Type header to application/json
+        //   },
+        // });
+        // Send a POST request to the /refresh endpoint to get a new access token.
+        const newResponse = await axios.post(baseUrl + '/refresh',{
+          headers: {
+            'Content-Type': 'application/json', // Set the Content-Type header to application/json
+          },
+          refresh_token:present_refresh_token
+          
+        });
+        localStorage.setItem('token', newResponse.data.access_token);
+
+        // Retry the original request with the new token
+        let response_call = await checkTrailParameters(name, data);
+        return response_call.data;
+      } else{
+        // Clear the local storage and reload the page on token refresh failure.
+        localStorage.clear();
+        window.location.reload();
+      }
+    }
+};
 export const signUp = async (registerdetails) => {
   let response = await axios.post(baseUrl + "/signup", registerdetails);
   return response.data;
@@ -9,7 +60,8 @@ export const signUp = async (registerdetails) => {
 export const login = async (logindetails) => {
   let response = await axios.post(baseUrl + "/login", logindetails);
   localStorage.setItem("token", response.data.token);
-  return response.data;
+  localStorage.setItem("refresh_token",response.data.refresh_token)
+  return response;
 };
 
 export const getProfileDetails = async () => {
@@ -18,7 +70,7 @@ export const getProfileDetails = async () => {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
   });
-  return response.data;
+  return response;
 };
 
 export const getDistricts = async (state) => {
@@ -82,6 +134,17 @@ export const predictNpk = async (crop, district) => {
   );
   return response.data;
 };
+export const setScheduler = async (data) => {
+  let response = await axios.post(baseUrl + "/scheduler", data,
+  {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  }
+  );
+  return response.data;
+};
+
 
 export const predictFertilizer = async (reqdetails, district) => {
   console.log(reqdetails);
@@ -164,3 +227,6 @@ export const weedDetection = async (imageURI) => {
   let response = await axios.post(baseUrl + `/weedDetection`, { imageURI });
   return response.data;
 };
+
+
+

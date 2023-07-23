@@ -1,0 +1,58 @@
+/* EventScheduler.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 255, 0, 0.1), rgba(0, 255, 0, 0.2));
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .title {
+    color: Green;
+    margin: 0;
+    padding: 2rem;
+  }
+
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .label {
+    color: rgb(2, 102, 5);
+    margin-bottom: 0.5rem;
+  }
+  
+  .select {
+    width: 200px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .datepicker {
+    padding: 0.5rem;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #04641c;
+  }
+  
+  .button {
+    padding: 0.5rem 1rem;
+    background-color: #1c7f49;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #097719;
+  }
+  

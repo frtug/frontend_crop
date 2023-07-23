@@ -120,7 +120,7 @@ const PredictCropView = ({
                     duration={5}
                     decimals={3}
                   />
-                  {" cm"}
+                  {" mm"}
                 </Typography>
               </Typography>
             </motion.div>
