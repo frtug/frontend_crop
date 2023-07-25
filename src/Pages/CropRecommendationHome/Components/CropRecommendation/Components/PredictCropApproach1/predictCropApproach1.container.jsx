@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import PredictCropView from "./predictCropApproach1.view";
 
 //request imports
-import { predictNpk, predictCrop } from "../../../../../../utils/requests";
+import { predictNpk, predictCrop,requestContainer } from "../../../../../../utils/requests";
 
 const PredictCrop = ({
   page,
@@ -36,7 +36,7 @@ const PredictCrop = ({
   };
 
   const handlePredictCrop = () => {
-    predictCrop(locationval)
+    requestContainer(predictCrop,locationval)
       .then((response) => {
         console.log(response["crop"]);
         handleCropChange(response["crop"]);

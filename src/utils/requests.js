@@ -1,56 +1,45 @@
 import axios from "axios";
 import { baseUrl } from "./constants";
 
-
-const checkTrailParameters = async (name, data) => {
+const checkTrailParameters = async (f, data) => {
   let response_call = {};
-   if (data !== null) {
-    response_call = await name(data);
+  if (data !== null) {
+    response_call = await f(data);
   } else {
-    response_call = await name();
+    response_call = await f();
   }
   return response_call;
-  
 };
 
-export const requestContainer = async (name, data = null) => {
+export const requestContainer = async (f, data = null) => {
   try {
-    let response_call = await checkTrailParameters(name, data);
+    let response_call = await checkTrailParameters(f, data);
     return response_call.data;
   } catch (error) {
-    // Handle errors from checkTrailParameters function or other errors.
-      // Call a refresh token function to get a new token in our request.
-      const present_refresh_token = localStorage.getItem('refresh_token');
-      console.log("Token has expired, and we are at the status 401");
+    const present_refresh_token = localStorage.getItem('refresh_token');
+    console.log("Token has expired, and we are at the status 401");
 
-      if(error.response.status === 401){
-        // Use axios.create to create an instance with the Authorization header
-        // containing the current refresh token.
-        // const refreshTokenAxios = axios.create({
-        //   headers: {
-        //     Authorization: `Bearer ${present_refresh_token}`,
-        //     'Content-Type': 'application/json', // Set the Content-Type header to application/json
-        //   },
-        // });
-        // Send a POST request to the /refresh endpoint to get a new access token.
-        const newResponse = await axios.post(baseUrl + '/refresh',{
+    if (error.response.status === 401) {
+      try {
+        const newResponse = await axios.post(baseUrl + '/refresh', {
+          refresh_token: present_refresh_token
+        }, {
           headers: {
-            'Content-Type': 'application/json', // Set the Content-Type header to application/json
+            'Content-Type': 'application/json',
           },
-          refresh_token:present_refresh_token
-          
         });
+        localStorage.removeItem('token')
         localStorage.setItem('token', newResponse.data.access_token);
 
-        // Retry the original request with the new token
-        let response_call = await checkTrailParameters(name, data);
+        let response_call = await checkTrailParameters(f, data);
         return response_call.data;
-      } else{
-        // Clear the local storage and reload the page on token refresh failure.
+      } catch (refreshError) {
+        console.error(refreshError);
         localStorage.clear();
         window.location.reload();
       }
     }
+  }
 };
 export const signUp = async (registerdetails) => {
   let response = await axios.post(baseUrl + "/signup", registerdetails);
@@ -119,7 +108,7 @@ export const predictCrop = async (district) => {
     }
   );
   console.log(response);
-  return response.data;
+  return response;
 };
 
 export const predictNpk = async (crop, district) => {
