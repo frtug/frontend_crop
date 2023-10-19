@@ -212,10 +212,5 @@ export const getSeasonbyMonth = async () => {
   return response.data;
 };
 
-export const weedDetection = async (imageURI) => {
-  let response = await axios.post(baseUrl + `/weedDetection`, { imageURI });
-  return response.data;
-};
-
 
 

@@ -76,6 +76,8 @@ const Login = () => {
         dispatch(addSuccessAlert(res.message));
         dispatch(hideBackDrop());
         history.push("/home");
+        window.location.reload()
+
       })
       .catch((error) => {
         dispatch(hideBackDrop());
