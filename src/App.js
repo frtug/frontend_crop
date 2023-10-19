@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { configureReducer } from "./redux/configureReducer";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import { green } from "@material-ui/core/colors";
+import { blue, green } from "@material-ui/core/colors";
 
 //import required component files
 import Routes from "./Routes";
@@ -18,21 +18,43 @@ const theme = createMuiTheme({
       main: green[600],
     },
     secondary: green,
+    normal: blue,
   },
+  overrides: {
+    MuiButton: {
+      root: {
+        color:"#81c784",
+        border:"2px solid white",
+        backgroundColor:"#81c784"
+      },
+      label:{
+        color:"white",
+
+      }
+    
+      
+    },
+  },
+  
 });
 
 const App = () => {
   const store = configureReducer();
+  
   return (
+    <div style={{height:"100%"}}>
+
     <Provider store={store}>
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Navbar />
-          <Routes />
+            <Routes />
+         
         </ThemeProvider>
       </BrowserRouter>
     </Provider>
+    </div>
+
   );
 };
 

@@ -117,7 +117,7 @@ const NavbarView = ({
           <Toolbar>
           <Box display="flex" justifyContent="space-between" alignItems="center" width="100%">
           <Box>
-          <NavLink to="/home" className={classes.logoLink}>
+          <NavLink to="/" className={classes.logoLink}>
             <img
               src="innovatron_industries.png"
               alt="Farm Analytica Logo"

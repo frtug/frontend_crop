@@ -1,5 +1,6 @@
-export const baseUrl = "https://api.farmanalyticaph.online/api";
+// export const baseUrl = "https://api.farmanalyticaph.online/api";
 // export const baseUrl = "http://localhost:5000/api";
+export const baseUrl = "http://127.0.0.1:5000/api";
 
 export const images =[
     {

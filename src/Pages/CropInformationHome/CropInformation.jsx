@@ -10,6 +10,7 @@ import {
   Grid,
   Container,
   Button,
+  Box,
 } from '@material-ui/core';
 import { List, ListItem, ListItemText,ListItemIcon } from '@material-ui/core';
 import { useHistory } from "react-router-dom";
@@ -17,6 +18,47 @@ import { motion } from "framer-motion";
 import {images} from "../../utils/constants"
 
 const useStyles = makeStyles((theme) => ({
+  container:{
+    backgroundColor: "rgba(13, 16, 23,0.9)",
+    color:"black",
+    display:"flex",
+    flexDirection:"column",
+    justifyContent:"center",
+    alignContent:"center",
+    padding:"1rem",
+    paddingBottom:"4rem",
+
+  },
+  centeredBox:{
+    display: "flex",
+    flexDirection:"column",
+    padding:"1rem",
+    justifyContent:"center",
+    height:"50vh",
+    alignContent: "center", /* Set align-content property */
+    backgroundImage: "linear-gradient(rgba(25,45,25,0.5),rgba(25,35,25,0.5)),url(aboutbg.jpg)",
+    backgroundSize: "cover", /* Adjust as needed */
+backgroundPosition: "center center", /* Adjust as needed */
+
+    // [theme.breakpoints.up('md')]:{}
+  },
+  textCentered:{
+    textAlign:"center",
+    fontWeight:700,
+    padding:"0 2rem 0 2rem",
+  },
+  paragraph:{
+    marginTop:"1rem",
+    fontStyle:"italic",
+    paddingBottom:"4rem"
+  },
+  line:{
+    color:"white",
+    width:"70%",
+    height:"3px",
+    backgroundColor:"white",
+    marginTop:"3rem",
+  },
   root: {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
@@ -24,6 +66,7 @@ const useStyles = makeStyles((theme) => ({
   card: {
     maxWidth: 345,
     margin: 'auto',
+    textAlign:"center",
     marginBottom: theme.spacing(4),
     transition: 'transform 0.2s',
     '&:hover': {
@@ -31,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   media: {
-    height: 140,
+    height: 240,
   },
   modal: {
     display: 'flex',
@@ -39,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   modalContent: {
-    backgroundColor: '#388e3c', // Transparent green color (RGBA)
+    backgroundColor: 'rgba(13, 16, 23,1)',
     color: 'white',
     padding: theme.spacing(2),
     outline: 'none',
@@ -49,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     textAlign: 'center',
     marginBottom: theme.spacing(3),
-    color: 'green',
+    color: 'White',
   },
   white:{
     color:"white"
@@ -110,11 +153,51 @@ const App = () => {
   };
 
   return (
+    <Box className={classes.container}>
+      <div style={{display:"flex",justifyContent:"center"}}>
+        <img
+            src="innovatron_industries.png"
+            alt="logo header"
+            style={{ width:"90%", maxWidth:"600px",  marginTop: "2rem" }}
+          />
+      </div>
+      <Box className={classes.centeredBox} >
+        <div style={{display:"flex",flexDirection:"column",alignItems:"center",alignContent:"start"}}>
+          <img
+          src="falogo.png"
+          alt="logo header"
+          style={{ width:"90%", maxWidth:"600px",  marginTop: "1rem" }}
+
+          />
+          <img
+          src="farmanalyticalogo.png"
+          alt="logo header"
+          style={{ width:"70px"}}
+
+          />
+        </div>
+        <div style={{marginTop:"1rem",color:"white"}}>
+        
+          <Typography variant="h4" component="h4" className={classes.textCentered }  >
+            Crops
+          </Typography> 
+        </div>
+          
+      </Box>
+      <hr className={classes.line} /> 
+      
     <div className={classes.root}>
       <Container maxWidth="md">
-        <Typography variant="h3" component="h3" className={classes.title}>
-          Crop Information
+        <Typography variant="h5" component="h5" className={classes.title}>
+          CROPS LIST
         </Typography>
+        <div style={{color:"white"}}>
+          <Typography className={classes.paragraph} >
+            Information about various crops can be found here. chossing a crop to plant allows
+            you to consider a few things. You can choose a crop based on the environment they grow
+            in maturity, best regions to plant them and the time to which fertilizer can be applied.
+          </Typography> 
+        </div>
 
         <Grid container spacing={2} className={classes.gridClass}>
           {images.map((image) => (
@@ -127,8 +210,13 @@ const App = () => {
                     title={image.crop}
                   />
                   <CardContent>
-                    <Typography variant="body2" color="textSecondary">
+                    <Typography variant="h5" color="text" >
                       {image.crop}
+                    </Typography>
+                  </CardContent>
+                  <CardContent style={{backgroundColor:"rgba(13, 16, 23,0.9)",margin:"10px"}}>
+                    <Typography variant="h6" color="secondary" >
+                      Learn More
                     </Typography>
                   </CardContent>
                 </CardActionArea>
@@ -146,7 +234,7 @@ const App = () => {
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={() => history.push("/scheduler")}
+                    onClick={() => history.push("/app/scheduler")}
                     style={{
                       border: "2px solid white",
                       width: "100%",
@@ -194,6 +282,7 @@ const App = () => {
         </div>
       </Modal>
     </div>
+    </Box>
   );
 };
 

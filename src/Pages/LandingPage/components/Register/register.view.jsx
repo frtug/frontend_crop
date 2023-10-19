@@ -19,7 +19,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import { Link } from "react-router-dom";
-
+import {useStyles} from '../Login/login.view'
 
 //background image and logo
 import background from "../../../../utils/images/cropregister.jpg";
@@ -33,37 +33,21 @@ const RegisterPageView = ({
 }) => {
   const themesignup = useTheme();
   const matches = useMediaQuery(themesignup.breakpoints.up("sm"));
-  
   return (
     <Grid
       container
       justify="center"
       alignItems="center"
-      style={
-        !matches
-          ? {
+      style={{
               background: `url(${background})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
               backgroundSize: "cover",
-              height: "100%",
+              height:"calc(100vh)",
             }
-          : {}
-      }
+          }
     >
-      {matches && (
-        <Grid item xs={12} sm={6}>
-          <img
-            src={background}
-            alt="crops"
-            style={{
-              height: "calc(100vh - 70px)",
-              width: "100%",
-              objectFit: "cover",
-            }}
-          />
-        </Grid>
-      )}
+      
       <Grid
         container
         item
@@ -232,7 +216,7 @@ const RegisterPageView = ({
                       size="small"
                     >
                       <Link
-                        to="/"
+                        to="/login"
                         style={{ color: "green", textDecoration: "none" }}
                       >
                         <Typography variant="body2">

@@ -68,7 +68,7 @@ const ChooseLocationView = ({
         </Box>
         <FormControl>
           <FormGroup>
-            
+            {console.log(userDetails)}
             <FormControlLabel
               control={
                 <Checkbox
