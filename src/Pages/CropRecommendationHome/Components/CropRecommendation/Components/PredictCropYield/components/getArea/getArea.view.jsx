@@ -47,7 +47,7 @@ const GetAreaView = ({
               <Checkbox
                 color="primary"
                 name="area"
-                disabled={!userDetails["area"] && true}
+                disabled={userDetails && !userDetails["area"] && true}
                 checked={area === 0}
                 onChange={() => {
                   handleAreaChange(0);

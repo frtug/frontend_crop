@@ -68,7 +68,6 @@ const ChooseLocationView = ({
         </Box>
         <FormControl>
           <FormGroup>
-            {console.log(userDetails)}
             <FormControlLabel
               control={
                 <Checkbox
@@ -76,7 +75,7 @@ const ChooseLocationView = ({
                   name="location"
                   checked={location === 1}
                   disabled={
-                    !userDetails["state_name"] &&
+                    userDetails && !userDetails["state_name"] &&
                     !userDetails["district_name"] &&
                     true
                   }
@@ -88,7 +87,7 @@ const ChooseLocationView = ({
               }
               label="Use Location in Profile"
             />
-            {!userDetails["state_name"] && !userDetails["district_name"] && (
+            {userDetails && !userDetails["state_name"] && !userDetails["district_name"] && (
               <Link to="/profile">Update profile to enable this option</Link>
             )}
             <FormControlLabel

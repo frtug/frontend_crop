@@ -1,3 +1,5 @@
+
+
 import { Box, makeStyles } from '@material-ui/core';
 import React from 'react'
 import WhatshotRoundedIcon from '@material-ui/icons/WhatshotRounded';
@@ -26,10 +28,29 @@ const useStyles = makeStyles((theme) => ({
         width:"60%"
     }
 }));
-export function SoilCard({}){
+export function SoilCard({url,name,desc}){
     const classes = useStyles()
     return(
-        <>soil</>
+    <Box className={classes.background} style={{flexDirection:"column",textAlign:"center"}}>
+        <Box >
+            <img alt="name" src={url} width="100px" height="100px" style={{borderRadius:"50%"}} />
+        </Box>
+        <Box style={{width:"50%",paddingTop:"15px"}}>
+            <h3 style={{padding:0,margin:0}}>{name}</h3>
+        </Box>
+        <Box style={{padding:"15px"}}>
+            <p style={{fontSize:"13px",padding:0,margin:0}}>{desc}</p>
+        </Box>
+    </Box>
+    )
+}
+export function ImageCard({title,url}){
+    const classes = useStyles()
+    return(
+    <Box className={classes.background} style={{flexDirection:"column"}}>
+            <h3 style={{padding:0,margin:0}}>{title}</h3>
+            <img alt="name" src={url} width="400px" height="300px" style={{padding:"2rem"}} />
+    </Box>
     )
 }
 
