@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection:"column",
     paddingTop:"25vh",
     alignItems:"center",
-    height:"calc(100vh)"
+    height:"calc(100vh)",
   },
   logo: {
     width: '350px', // Adjust the size as needed
@@ -30,7 +30,7 @@ const LandingPageView = () => {
   const classes = useStyles();
 
   return (
-    <Container className={classes.container}>
+    <div className={classes.container}>
       <CssBaseline />
       <img src="../../innovatron_industries.png" alt="Logo" className={classes.logo} />
       <Typography variant="h3" component="h1">
@@ -45,7 +45,7 @@ const LandingPageView = () => {
       >
         Get Started
       </Button>
-    </Container>
+    </div>
   );
 };
 

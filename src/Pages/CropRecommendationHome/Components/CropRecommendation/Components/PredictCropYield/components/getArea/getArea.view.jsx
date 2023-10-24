@@ -56,7 +56,7 @@ const GetAreaView = ({
             }
             label="Use Area in Profile"
           />
-          {!userDetails["area"] && (
+          {userDetails && !userDetails["area"] && (
             <Link to="/profile">Update profile to enable this option</Link>
           )}
           <FormControlLabel
